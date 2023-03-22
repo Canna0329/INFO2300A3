@@ -8,9 +8,7 @@ namespace wcf_assignment3_interface.Pages
     {
         private readonly ILogger<GetModel> _logger;
         [BindProperty]
-#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public static FlowerDetails[] FlowerDetails { get; set; }
-#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 
         public SearchModel(ILogger<GetModel> logger)
         {

@@ -8,7 +8,7 @@ namespace wcf_assignment3_interface
         public static int selectedFlower;
         private Singleton()
         {
-            Flowers= new FlowerDetails[0];
+            Flowers= Array.Empty<FlowerDetails>();
             UpdateSingleton();
             selectedFlower= -1;
         }
@@ -32,6 +32,17 @@ namespace wcf_assignment3_interface
                 {
                     Flowers[i] = flowersResponse.GetFlowersResult[i];
                 }
+        }
+        public static string NameById(int id)
+        {
+            foreach (FlowerDetails flower in Flowers)
+            {
+                if (flower.FlowerId==id)
+                {
+                    return flower.Name;
+                }
+            }
+            return "Not in Set";
         }
     }
 }

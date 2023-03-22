@@ -24,4 +24,6 @@
     <a class="navbar-brand" asp-area="" asp-page="/Edit">Edit Flower</a>
     <a class="navbar-brand" asp-area="" asp-page="/Delete">Delete Flower</a>
         <input type="hidden" asp-for="FlowerDetails.FlowerId" />
+
+    <a class="navbar-brand" asp-area="" asp-page="/Search" asp-route-selection=@Singleton.NameById(Singleton.selectedFlower)>Search Flowers With the Same Name</a>
 </div>
