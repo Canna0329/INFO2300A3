@@ -111,6 +111,33 @@ namespace wcf_assignment3
                 }
             return result;
         }
+        public FlowerDetails[] GetFlowersByName(string flowerName)
+        {
+            SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=FlowerShop;Integrated Security=True; TrustServerCertificate=True;");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("select flowerId,name,colour,price,stock,species from Flower where name=@flowerName", con);
+            cmd.Parameters.AddWithValue("@flowerName", flowerName);
+            List<FlowerDetails> result = new List<FlowerDetails>();
+            SqlDataReader reader = cmd.ExecuteReader();
+            while (reader.Read())
+            {
+                FlowerDetails flower = new FlowerDetails();
+                int flowerId = reader.GetInt32(0);
+                string name = reader.GetString(1);
+                string colour = reader.GetString(2);
+                decimal price = reader.GetDecimal(3);
+                int stock = reader.GetInt32(4);
+                string species = reader.GetString(5);
+                flower.FlowerId = flowerId;
+                flower.Name = name;
+                flower.Colour = colour;
+                flower.Price = price;
+                flower.Stock = stock;
+                flower.Species = species;
+                result.Add(flower);
+            }
+            return result.ToArray();
+        }
         public FlowerDetails[] GetFlowers()
         {
             SqlConnection con = new SqlConnection("Data Source=localhost;Initial Catalog=FlowerShop;Integrated Security=True; TrustServerCertificate=True;");

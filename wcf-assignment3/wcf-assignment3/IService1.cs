@@ -21,6 +21,8 @@ namespace wcf_assignment3
         [OperationContract]
         FlowerDetails GetFlower(int value);
         [OperationContract]
+        FlowerDetails[] GetFlowersByName(string name);
+        [OperationContract]
         FlowerDetails[] GetFlowers();
 
         [OperationContract]
