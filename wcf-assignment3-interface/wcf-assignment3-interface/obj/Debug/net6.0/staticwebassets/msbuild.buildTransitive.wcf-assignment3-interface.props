@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\wcf-assignment3-interface.props" />
+</Project>

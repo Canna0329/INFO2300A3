@@ -1,0 +1,17 @@
+﻿@page
+@model DeleteModel
+@{
+    ViewData["Title"] = "Delete page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Delete</h1>
+</div>
+ <form asp-action="Delete" method="post">
+     <p>
+         <label asp-for="FlowerDetails.Name">Name</label>
+         <input type="text" asp-for="FlowerDetails.Name" disabled />
+     </p>
+    <button type="submit" class="btn btn-primary">Delete</button>
+    <input type="hidden" asp-for="FlowerDetails.FlowerId" />
+</form>
