@@ -1,0 +1,34 @@
+﻿@page
+@using ServiceReference1;
+@model SearchModel
+@{
+    ViewData["Title"] = "Search flower";
+}
+<table>
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Colour</td>
+            <td>Price</td>
+            <td>Species</td>
+            <td>Stock</td>
+            <td></td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (FlowerDetails flower in SearchModel.FlowerDetails)
+        {
+                <tr>
+                    <td>@flower.Name</td>
+                    <td>@flower.Colour</td>
+                    <td>@flower.Price</td>
+                    <td>@flower.Species</td>
+                    <td>@flower.Stock</td>
+                    <td>
+                        <a class="navbar-brand" asp-area="" asp-page="/Get" asp-route-selection="@flower.FlowerId" >Show Flower</a>
+                        </td>
+                </tr>
+        }
+    </tbody>
+</table>
+<a class="navbar-brand" asp-area="" asp-page="/Search" asp-route-selection="B">Search Flowers</a>

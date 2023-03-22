@@ -24,8 +24,8 @@ namespace wcf_assignment3_interface.Pages
         }
         public void GetFlower(int selection)
         {
-            FlowerServiceClient client = new FlowerServiceClient();
-            GetFlowerRequest getFlower = new GetFlowerRequest(selection);
+            FlowerServiceClient client = new();
+            GetFlowerRequest getFlower = new(selection);
             var value =  client.GetFlower(getFlower);
             GetFlowerResponse flowerResponse = value;
             FlowerDetails = flowerResponse.GetFlowerResult;

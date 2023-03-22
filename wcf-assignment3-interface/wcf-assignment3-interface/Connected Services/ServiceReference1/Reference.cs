@@ -126,6 +126,12 @@ namespace ServiceReference1
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlowerService/GetFlower", ReplyAction="http://tempuri.org/IFlowerService/GetFlowerResponse")]
         System.Threading.Tasks.Task<ServiceReference1.GetFlowerResponse> GetFlowerAsync(ServiceReference1.GetFlowerRequest request);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlowerService/GetFlowersByName", ReplyAction="http://tempuri.org/IFlowerService/GetFlowersByNameResponse")]
+        ServiceReference1.GetFlowersByNameResponse GetFlowersByName(ServiceReference1.GetFlowersByNameRequest request);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlowerService/GetFlowersByName", ReplyAction="http://tempuri.org/IFlowerService/GetFlowersByNameResponse")]
+        System.Threading.Tasks.Task<ServiceReference1.GetFlowersByNameResponse> GetFlowersByNameAsync(ServiceReference1.GetFlowersByNameRequest request);
+        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFlowerService/GetFlowers", ReplyAction="http://tempuri.org/IFlowerService/GetFlowersResponse")]
         ServiceReference1.GetFlowersResponse GetFlowers(ServiceReference1.GetFlowersRequest request);
         
@@ -218,6 +224,44 @@ namespace ServiceReference1
         public GetFlowerResponse(ServiceReference1.FlowerDetails GetFlowerResult)
         {
             this.GetFlowerResult = GetFlowerResult;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFlowersByName", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetFlowersByNameRequest
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public string name;
+        
+        public GetFlowersByNameRequest()
+        {
+        }
+        
+        public GetFlowersByNameRequest(string name)
+        {
+            this.name = name;
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.Tools.ServiceModel.Svcutil", "2.1.0")]
+    [System.ServiceModel.MessageContractAttribute(WrapperName="GetFlowersByNameResponse", WrapperNamespace="http://tempuri.org/", IsWrapped=true)]
+    public partial class GetFlowersByNameResponse
+    {
+        
+        [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://tempuri.org/", Order=0)]
+        public ServiceReference1.FlowerDetails[] GetFlowersByNameResult;
+        
+        public GetFlowersByNameResponse()
+        {
+        }
+        
+        public GetFlowersByNameResponse(ServiceReference1.FlowerDetails[] GetFlowersByNameResult)
+        {
+            this.GetFlowersByNameResult = GetFlowersByNameResult;
         }
     }
     
@@ -399,6 +443,16 @@ namespace ServiceReference1
         public System.Threading.Tasks.Task<ServiceReference1.GetFlowerResponse> GetFlowerAsync(ServiceReference1.GetFlowerRequest request)
         {
             return base.Channel.GetFlowerAsync(request);
+        }
+        
+        public ServiceReference1.GetFlowersByNameResponse GetFlowersByName(ServiceReference1.GetFlowersByNameRequest request)
+        {
+            return base.Channel.GetFlowersByName(request);
+        }
+        
+        public System.Threading.Tasks.Task<ServiceReference1.GetFlowersByNameResponse> GetFlowersByNameAsync(ServiceReference1.GetFlowersByNameRequest request)
+        {
+            return base.Channel.GetFlowersByNameAsync(request);
         }
         
         public ServiceReference1.GetFlowersResponse GetFlowers(ServiceReference1.GetFlowersRequest request)
